@@ -100,7 +100,7 @@ public class Employee implements Comparable<Employee> {
     // To be implemented
     @Override
     public int compareTo(Employee o) {
-        return 0;
+        return this.salary - o.salary;
     }
 
     @Override
