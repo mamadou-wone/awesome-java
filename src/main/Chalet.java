@@ -1,7 +1,11 @@
 package main;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class Chalet {
     public static int chaletCount = 0;
+    public static HashMap<Integer, Chalet> chaletList = new HashMap<>();
 
     private int id;
     private String name;
@@ -11,12 +15,15 @@ public class Chalet {
     private boolean isLoan;
 
     public Chalet(String name, Employee employee, int numberOfBeds, District district) {
-        chaletCount++;
-        this.id = chaletCount++;
+       int count = chaletCount + 1;
+        this.id = count;
         this.name = name;
+        employee.getChalet().add(this);
         this.employee = employee;
         this.numberOfBeds = numberOfBeds;
         this.district = district;
+        chaletList.put(count, this);
+        chaletCount++;
     }
 
     public static int getChaletCount() {
